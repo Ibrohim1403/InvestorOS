@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Morning Brief{% endblock %}
+
+{% block content %}
+  <h1 class="mb-3">Bugun — {{ today }}</h1>
+
+  <h4>Bugungi eng muhim 3 ta vazifa</h4>
+  <ul class="list-group mb-4">
+    {% for t in tasks %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ forloop.counter }}. {{ t.title }}
+        <span class="badge bg-info">AI score: {{ t.ai_score|default:"-" }}</span>
+      </li>
+    {% empty %}
+      <li class="list-group-item text-success">Bugun qilinadigan topshiriq yo‘q — dam ol! 😎</li>
+    {% endfor %}
+  </ul>
+
+  <h4>Yangi loyihalar</h4>
+  <ul class="list-group mb-4">
+    {% for p in projects %}
+      <li class="list-group-item">
+        <b>{{ p.name }}</b> — {{ p.start_date }} <br>
+        <small class="text-muted">{{ p.description|default:"Izoh yo‘q" }}</small>
+      </li>
+    {% empty %}
+      <li class="list-group-item text-muted">Hozircha yangi loyiha yo‘q</li>
+    {% endfor %}
+  </ul>
+
+  <h4>Ochiq muammolar</h4>
+  <ul class="list-group">
+    {% for i in issues %}
+      <li class="list-group-item">
+        {{ i.title }} <span class="badge bg-warning text-dark">{{ i.status }}</span><br>
+        <small class="text-muted">Loyiha: {{ i.project.name }}</small>
+      </li>
+    {% empty %}
+      <li class="list-group-item text-muted">Ochiq muammo yo‘q</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
