@@ -23,9 +23,9 @@ AUTH_USER_MODEL = "home.CustomUser"
 SECRET_KEY = 'django-insecure-@c+^^7(+muajp41$p-ckl$3x=sogh57*wzt_p&tx8#31_gh$)6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['USERNAME.pythonanywhere.com']
 # login muvaffaqiyatli bo‘lganda qayerga yuboriladi
 LOGIN_REDIRECT_URL = "morning_brief"
 
