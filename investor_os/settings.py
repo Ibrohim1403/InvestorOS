@@ -11,9 +11,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = "home.CustomUser"
 # Quick-start development settings - unsuitable for production
@@ -23,9 +29,18 @@ AUTH_USER_MODEL = "home.CustomUser"
 SECRET_KEY = 'django-insecure-@c+^^7(+muajp41$p-ckl$3x=sogh57*wzt_p&tx8#31_gh$)6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True
 
-ALLOWED_HOSTS = ['USERNAME.pythonanywhere.com']
+# settings.py
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "zerikkan2004@gmail.com"
+EMAIL_HOST_PASSWORD = "locd bsit yzkw xrzu"  # Gmail App password
+
+
+ALLOWED_HOSTS = []
 # login muvaffaqiyatli bo‘lganda qayerga yuboriladi
 LOGIN_REDIRECT_URL = "morning_brief"
 

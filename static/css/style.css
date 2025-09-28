@@ -89,3 +89,47 @@ h1, h4 {
   color: #000;
   transform: scale(1.02);
 }
+
+/* Default Light Mode */
+body {
+  background-color: #ffffff;
+  color: #212529;
+  transition: background-color 0.3s, color 0.3s;
+  background: url("../img/back1.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.navbar {
+  background-color: #0d6efd;
+  transition: background-color 0.3s;
+}
+
+footer {
+  background-color: #f8f9fa;
+  color: #212529;
+  transition: background-color 0.3s, color 0.3s;
+
+}
+
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f8f9fa;
+  background: url("../img/back2.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.dark-mode .navbar {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode footer {
+  background-color: #1f1f1f;
+  color: #f8f9fa;
+}
+
+body.dark-mode a {
+  color: #0d6efd;
+}
+
