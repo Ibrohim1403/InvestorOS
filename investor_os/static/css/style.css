@@ -1,0 +1,91 @@
+/* 🌙 Dark rejim */
+body {
+  background-color: #0D0D0D;
+  color: #fff;
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* 🟣 Siyohrang, 🟢 Yashil, 🟡 Sariq */
+:root {
+  --accent-purple: #7F5AF0;
+  --accent-green: #2CB67D;
+  --accent-yellow: #FFCD58;
+}
+
+/* Panellar */
+.card, .list-group-item {
+  background: rgba(255, 255, 255, 0.05); /* yarim shaffof */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px; /* keskinroq qirralar */
+  transition: transform 0.2s ease, background 0.4s ease;
+}
+
+/* Hover animatsiya */
+.list-group-item:hover {
+  transform: translateY(-3px);
+  background: rgba(127, 90, 240, 0.15); /* siyohrang accent */
+}
+
+/* Badge ranglari */
+.badge.bg-info {
+  background-color: var(--accent-green) !important;
+  color: #0D0D0D;
+  font-weight: 600;
+}
+
+/* Sahifa sarlavha */
+h1, h4 {
+  color: var(--accent-purple);
+  font-weight: 600;
+}
+
+/* Tugmalar */
+.btn-primary {
+  background-color: var(--accent-purple);
+  border: none;
+  transition: background 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: var(--accent-green);
+}
+
+/* Mobil sheet-style */
+@media (max-width: 768px) {
+  .container {
+    background: rgba(20, 20, 20, 0.95);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+
+/* Login sahifa tugmalari uchun */
+.btn-primary {
+  background-color: #7F5AF0;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #2CB67D;
+  transform: scale(1.02);
+}
+
+.register-btn {
+  border: 1px solid #FFCD58;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background-color: #FFCD58;
+  color: #000;
+  transform: scale(1.02);
+}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+  <h1>📝 Reports</h1>
+  <p>Bu bo‘limda PDF / Excel hisobotlarini yuklab olish mumkin bo‘ladi.</p>
+
+  <!-- Fayl yuklash formasi -->
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="file" class="form-label">Fayl yuklash (.txt yoki .docx):</label>
+      <input type="file" class="form-control" id="file" name="file" accept=".txt,.docx" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Yuklash</button>
+  </form>
+
+  {% if error %}
+    <div class="alert alert-danger mt-3">{{ error }}</div>
+  {% endif %}
+
+  {% if parsed_data %}
+    <div class="card mt-4">
+      <div class="card-header">📋 Ariza ma’lumotlari</div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <tr><th>To‘liq ism-familiya</th><td>{{ parsed_data.fullname }}</td></tr>
+          <tr><th>Tashkilot / Kompaniya</th><td>{{ parsed_data.company }}</td></tr>
+          <tr><th>Bog‘lanish ma’lumoti</th><td>{{ parsed_data.contact }}</td></tr>
+          <tr><th>Investitsiya miqdori</th><td>{{ parsed_data.investment }}</td></tr>
+          <tr><th>Loyiha nomi</th><td>{{ parsed_data.project }}</td></tr>
+          <tr><th>Loyiha taqdimoti</th><td><a href="{{ parsed_data.doclink }}" target="_self">{{ parsed_data.doclink }}</a></td></tr>
+          <tr><th>Qo‘shimcha izoh</th><td>{{ parsed_data.comment }}</td></tr>
+        </table>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
